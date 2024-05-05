@@ -1,0 +1,338 @@
+/* Reset and base styles */
+body {
+  position: relative;
+  font-family: "Text Me One", sans-serif;
+  margin: 0;
+  padding: 0;
+  /* background-color: #f6f9f7; */
+  background-image: url("./images/background1.png");
+  background-attachment: fixed; /* This will keep the background image static */
+  background-size: cover; /* Optional: Ensures the background covers the entire viewport */
+  background-position: center; /* Optional: Centers the background image */
+}
+
+/* Header styles */
+.header {
+  position: absolute;
+  top: 1%; /* Small offset from the top corner */
+  left: 1%; /* Small offset from the left corner */
+  width: 5%;
+  cursor: pointer;
+  z-index: 2; /* Ensure it's above other content */
+}
+
+.top-content {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr; */
+  grid-template-columns: minmax(100px, 2fr) 1fr; /* Left column has a min-width of 300px and will take up 3 parts of the remaining space */
+  align-items: center;
+  gap: 5px;
+}
+
+/* Positioning of elements relative to the grid */
+.text-container {
+  padding-top: 15%;
+  padding-left: 5%;
+  position: relative;
+  z-index: 2; /* Text container should be above the blob */
+}
+
+/* Style for heading and subheading text */
+.heading {
+  font-family: "Cinzel", serif;
+  font-size: 90px;
+  color: #4d60a4;
+  text-align: center;
+}
+
+.bowl {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#bowl {
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  z-index: 2; /* Bowl image is above the blob */
+  transition: transform 0.1s ease-in-out; /* Smooths out the wiggle effect */
+}
+
+.line {
+  width: 294px;
+  height: 2px;
+  background: black;
+  margin: 20px auto;
+}
+
+.subheading {
+  font-family: "Text Me One", serif;
+  font-size: 2.5vw;
+  color: black;
+  text-align: center;
+  padding-top: 1%;
+  padding-bottom: 15%;
+}
+
+/* Blob image that stays behind content */
+#rightBlob {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 0; /* Right above the background, but below other content */
+  width: 25%;
+  height: 80%;
+}
+
+/*Bottom half of home page*/
+/*-----------------------------------------------------------------------------------------------------------------------*/
+/* Styles for sections */
+
+#leftBlob {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1; /* Right above the background, but below other content */
+  width: 20%;
+  height: 130%;
+}
+
+.favorites {
+  position: relative;
+  /* background-color: #fffdfa; */
+  z-index: 1; /* favorites section is above the background */
+}
+
+#favoritesBackground {
+  position: absolute; /* Position absolute to allow layering */
+  top: 0;
+  left: 0;
+  width: 100%; /* Ensure the image covers the entire section width */
+  z-index: 0; /* This will be behind the container content */
+  filter: brightness(105%);
+}
+
+.container {
+  position: relative; /* Required for z-index to take effect */
+  z-index: 2; /* Higher than favoritesBackground to appear on top */
+  /* Rest of your container styles here */
+}
+
+/* Ensure that all content within .container appears above the background image */
+.container > * {
+  position: relative;
+  z-index: 2;
+}
+
+.favoritesTitle {
+  display: flex;
+  flex-direction: row; /* Stack children vertically */
+  justify-content: center; /* Center horizontally in the container */
+  align-items: center; /* Center vertically in the container */
+  text-align: center; /* Ensure text within is centered */
+}
+
+.favoritesHeading {
+  padding-top: 5%;
+  font-family: "Judson";
+  font-size: 5vw;
+  color: #4d60a4;
+  text-align: center;
+}
+
+#girlEating {
+  padding-top: 4.5vw;
+  width: 6vw;
+  height: 6vw;
+}
+
+.favoritesSubheading {
+  padding-bottom: 2.5vw;
+  font-size: 2vw;
+  text-align: center;
+}
+
+.favorite-recipes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap; /* Allow the items to wrap on smaller screens */
+  gap: 30px; /* This adds some space between the columns */
+}
+
+/* .favorite-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px; 
+}
+
+.favorite-column img {
+  width: 20vw;
+  max-width: 200px; 
+}
+
+.favorite-column span {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 1.5vw; 
+  max-width: 15vw;
+  word-wrap: break-word; 
+} */
+
+.favorite-column {
+  display: flex;
+  flex-direction: column; /* Stack the children vertically */
+  align-items: center; /* Center the items horizontally */
+  text-align: center; /* Center the text within the column */
+}
+
+.favorite-column img {
+  width: 25vw; /* Adjust the width as necessary */
+  max-width: 200px; /* Optional: maximum width */
+  /* Ensure the image doesn't stretch beyond its natural dimensions */
+  height: auto; /* Maintain the aspect ratio */
+}
+
+.RecipeName {
+  display: block; /* Make the span a block element to occupy its own line */
+  text-align: center;
+  margin-top: 0.5em; /* Space between the image and the text */
+  margin-left: 0%;
+  margin-right: 0%;
+  padding: 0;
+  font-size: 1.5vw;
+  max-width: 15vw;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Centers the button horizontally */
+  align-items: center; /* Centers the button vertically */
+  /* Remove the height and width properties that are forcing the container to be the size of the viewport */
+  margin-top: 40px; /* Adds some space above and below the button */
+  padding-bottom: 60px;
+}
+
+.view-more {
+  display: inline-flex; /* Use flexbox layout */
+  align-items: center; /* Center text vertically */
+  justify-content: center; /* Center text horizontally */
+  cursor: pointer;
+  height: 7vh;
+  width: 15vw;
+  font-family: "Text Me One", sans-serif;
+  font-size: 2vw;
+  background-color: #4d60a4;
+  color: white;
+  border-radius: 60px;
+  border: none;
+  outline: none;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease;
+  text-decoration: none; /* Remove underline from link */
+}
+
+.view-more:hover {
+  background-color: white;
+  color: #aadbad;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/*Responsive design adjustments*/
+/*-----------------------------------------------------------------------------------------------------------------------*/
+/* width: 20%;
+  height: 130%; */
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  /* Reset the padding for all elements inside the body to remove unexpected spacing */
+  .header,
+  .top-content,
+  .favorites,
+  body {
+    padding: 0;
+    margin: 0;
+  }
+
+  #avocado {
+    width: 15vw;
+    top: 1%; /* Keep the original top offset */
+    left: 1%; /* Keep the original left offset */
+  }
+
+  #rightBlob {
+    width: 30%;
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  .heading {
+    margin-top: 25%;
+    font-size: 10vw;
+  }
+
+  .top-content {
+    /* Set grid to a single column for the responsive layout */
+    grid-template-columns: 1fr;
+    text-align: center; /* This will center the text container */
+  }
+
+  .text-container {
+    padding: 0;
+  }
+
+  .subheading {
+    font-size: 4vw;
+    padding-top: 1%;
+    padding-bottom: 5%; /* Reduced bottom padding */
+  }
+
+  .bowl,
+  #bowl {
+    padding-top: 5%;
+    padding-left: 15%;
+    width: 70%; /* Adjust this to your preference */
+    max-width: 300px; /* Optional: set a maximum width for the bowl image */
+    /* margin-left: 0; */
+    margin: auto;
+    position: relative; /* Ensure it's positioned relative to the grid */
+  }
+
+  .favoritesHeading {
+    font-size: 6vw;
+  }
+
+  .favoritesSubheading {
+    font-size: 3.5vw;
+  }
+
+  .favorite-column {
+    width: 30vw;
+  }
+
+  .RecipeName {
+    font-size: 3vw;
+    padding-top: 6%;
+    text-align: center;
+    max-width: 25vw;
+  }
+
+  .button-container {
+    padding-bottom: 5%;
+  }
+
+  .view-more {
+    height: 6vh;
+    width: 20vw;
+    font-size: 2.5vw;
+  }
+}

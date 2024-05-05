@@ -1,0 +1,211 @@
+/* Reset and base styles */
+body,
+header {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url("./images/background1.png");
+  background-attachment: fixed; /* This will keep the background image static */
+  background-size: cover; /* Optional: Ensures the background covers the entire viewport */
+  background-position: center; /* Optional: Centers the background image */
+  scroll-behavior: smooth; /* Enables smooth scrolling for anchor links */
+  font-family: "Text Me One", sans-serif; /* Set default font */
+}
+
+#avocado {
+  padding-top: 2vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit; /* Ensures that anchor tags don't have the default blue color */
+}
+
+/* Header styles */
+header {
+  position: relative;
+  top: 1%;
+  left: 1%;
+  width: 5%;
+  cursor: pointer;
+  z-index: 2; /* Ensures it's above other content */
+}
+
+/* Main heading style */
+.AllRecipesHeading {
+  font-family: "Cinzel", serif;
+  font-size: 50px;
+  color: #4d60a4;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Top category icons */
+.category-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 40px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.icon,
+.icon p {
+  cursor: pointer; /* Changes the cursor to a pointer to indicate clickable items */
+}
+
+.icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* This ensures that the text is centered under the icon */
+}
+
+.icon img {
+  width: 140px;
+  height: auto;
+}
+
+.icon p {
+  margin: 0;
+  font-size: 1.5em;
+  text-align: center; /* Explicitly center the text */
+}
+
+/* Horizontal line separator */
+.heading-separator {
+  width: 40vw; /* Width of the line */
+  height: 1px;
+  background-color: #000;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3%;
+  margin-bottom: 5%;
+  border: none;
+}
+
+/* Initially hide category sections */
+.category-section {
+  display: none;
+}
+
+/* Class to toggle visibility */
+.visible-section {
+  display: block; /* Adjust as needed for your layout (block, flex, grid) */
+}
+
+/* Large category title styles */
+.large-category-title {
+  font-family: "Text Me One", serif;
+  font-size: 2vw;
+  color: #4d60a4;
+  text-align: center; /* Center the content */
+  margin: 20px auto; /* Space above and below */
+  padding-bottom: 10px;
+}
+
+.large-category-icon {
+  width: 150px; /* Large icon size */
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Center the image */
+}
+
+.large-category-title h2 {
+  font-family: "Cinzel", serif;
+  font-size: 24px; /* Font size for the title */
+  margin-top: 10px;
+  color: #4d60a4; /* Color to match the theme */
+}
+
+/* Food item grid */
+.food-items-container {
+  display: none; /* Initially hide food items container */
+}
+
+.food-items-container.food-items-show {
+  display: grid; /* Display when corresponding category section is shown */
+  grid-template-columns: repeat(4, 1fr); /* Keeps 3 columns in normal mode */
+  gap: 20px; /* Maintains a consistent gap */
+  max-width: 80%; /* Adjusted to provide padding on the sides */
+  margin: 0 auto; /* Center the grid */
+  padding-bottom: 10vh;
+}
+
+.food-item {
+  text-align: center; /* Center the content of food items */
+  padding-bottom: 4vh;
+}
+
+.food-item img {
+  width: 80%; /* Reduced width to prevent touching the sides */
+  max-width: 200px; /* Maximum width to prevent overly large images */
+  height: auto; /* Ensures the image maintains its aspect ratio */
+  margin-bottom: 10px; /* Space between image and text */
+}
+
+.food-item p {
+  margin: 0; /* Removes default margins */
+  font-size: 1.2em; /* Responsive font size */
+}
+
+#toTop {
+  position: fixed; /* Fixed position relative to the viewport */
+  width: 5%;
+  bottom: 30px; /* 20px from the bottom */
+  right: 30px; /* 20px from the right */
+  cursor: pointer; /* Changes the mouse pointer to suggest this is clickable */
+  z-index: 4; /* High z-index so it sits on top of other content */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  #avocado {
+    width: 15vw;
+    padding-top: 2vh; /* Keep the original top offset */
+    left: 1%; /* Keep the original left offset */
+  }
+  .icon img {
+    width: 90px; /* Smaller icons on mobile */
+  }
+
+  .category-icons {
+    flex-wrap: wrap; /* Allow icons to wrap on smaller screens */
+    gap: 10px;
+  }
+
+  .category-icons p {
+    font-size: medium;
+  }
+
+  .large-category-icon {
+    width: 120px; /* Smaller large icon on mobile */
+  }
+
+  .large-category-title h2 {
+    font-size: 20px; /* Smaller font size for titles on mobile */
+  }
+
+  .food-items-container {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* 2 columns in responsive mode for more than one image per row */
+    gap: 10px; /* Smaller gap in responsive mode */
+  }
+
+  .food-item img {
+    width: 80%; /* Adjust width as necessary */
+  }
+
+  .food-item p {
+    font-size: 2.5vw; /* Adjust font size as needed for visibility */
+  }
+
+  .heading-separator {
+    width: 80vw; /* Full width line on mobile */
+  }
+}
